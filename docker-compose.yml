@@ -1,0 +1,9 @@
+version: '3'
+services:
+  python-app:
+    build: .
+    ports:
+      - "3000:3000" # Mapeamento da porta do host para o container
+    env_file: 
+      - .env # Carrega as variáveis de ambiente do arquivo .env
+    restart: always # Garante que o container será reiniciado automaticamente se falhar
