@@ -3,7 +3,7 @@ services:
   python-app:
     image: python-app
     ports:
-      - "3001:3000"  # Muda a porta externa para 3001, mas a interna (dentro do container) permanece 3000
+      - "4000:4000"  # Muda a porta externa para 3001, mas a interna (dentro do container) permanece 3000
     env_file:
       - .env
 
