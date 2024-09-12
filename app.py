@@ -14,7 +14,7 @@ app = Flask(__name__)
 ACCESS_KEY_ID = os.getenv('ACCESS_KEY_ID')
 SECRET_ACCESS_KEY = os.getenv('SECRET_ACCESS_KEY')
 PARTNER_TAG = os.getenv('PARTNER_TAG')
-PORT = int(os.getenv('PORT', 3000))
+PORT = int(os.getenv('PORT', 4000))
 
 # Função para gerar a assinatura AWS v4
 def sign(key, msg):
