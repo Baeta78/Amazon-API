@@ -1,15 +1,8 @@
 version: '3'
 services:
-  python-app:
-    build: .  # Construir a imagem a partir do Dockerfile
+  amazon-api:
+    build: .
     ports:
-      - "4000:4000"  # Mapear a porta 4000 no host e no container
-    env_file:
-      - .env  # Carregar variáveis de ambiente do arquivo .env
-    restart: always  # Reiniciar automaticamente em caso de falha
-    volumes:
-      - python_app_data:/usr/src/app/data  # Volume montado no container
+      - "3000:3000"
+    container_name: amazon-api-nodejs
 
-volumes:
-  python_app_data:
-    driver: local
