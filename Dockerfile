@@ -1,18 +1,20 @@
-# Usar a imagem oficial do Python como base
-FROM python:3.9-slim
+# Use uma imagem oficial do Node.js como base
+FROM node:18-alpine
 
-# Definir o diretório de trabalho
+# Defina o diretório de trabalho dentro do container
 WORKDIR /usr/src/app
 
-# Copiar os arquivos requirements.txt e instalar dependências
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+# Copie o arquivo package.json e package-lock.json para o container
+COPY package*.json ./
 
-# Copiar o restante do código da aplicação
+# Instale as dependências do Node.js
+RUN npm install --production
+
+# Copie o restante do código da aplicação
 COPY . .
 
-# Expor a porta em que a aplicação será executada
+# Expor a porta que a aplicação usará
 EXPOSE 4000
 
-# Comando para rodar a aplicação
-CMD ["python", "./app.py"]
+# Defina o comando para rodar a aplicação
+CMD ["npm", "start"]
